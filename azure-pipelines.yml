@@ -30,7 +30,7 @@ steps:
 
 - task: CopyFilesOverSSH@0
   inputs:
-    sshEndpoint: 'flask-azure-devops'
+    sshEndpoint: 'github.com_caduunisal'
     sourceFolder: '$(Build.SourcesDirectory)'
     contents: '**'
     targetFolder: '/home/usuario/app'
