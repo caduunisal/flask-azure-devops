@@ -28,3 +28,14 @@ steps:
     echo "Deploy automático seria configurado aqui"
   displayName: 'Deploy'
 
+- task: CopyFilesOverSSH@0
+  inputs:
+    sshEndpoint: 'flask-azure-devops'
+    sourceFolder: '$(Build.SourcesDirectory)'
+    contents: '**'
+    targetFolder: '/home/usuario/app'
+
+- script: |
+    ssh usuario@ip-da-vm 'cd /home/usuario/app && nohup python3 app.py &'
+  displayName: 'Rodar app Flask na VM'
+
